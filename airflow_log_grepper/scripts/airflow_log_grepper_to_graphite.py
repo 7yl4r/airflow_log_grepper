@@ -31,21 +31,14 @@ def sanitize_glob_string(glob_str):
     return glob_str
 
 
-if __name__ == "__main__":
+def _main(greps_json_file, dag_logs_dir, testing=False):
+    if testing.lower() in ['y', '1', 'yes', 'test', 'testing', 'true']:
+        testing = True
+    else:
+        assert testing is False
     print("-"*100)
     HOSTNAME = subprocess.check_output("hostname -s", shell=True).strip()
     DATE = subprocess.check_output("date +%s", shell=True).strip()
-
-    greps_json_file = sys.argv[1]
-    dag_logs_dir = sys.argv[2]
-    try:
-        testing = sys.argv[3]
-        assert testing.lower() in [
-            'y', '1', 'yes', 'test', 'testing', 'true'
-        ]
-        test = True
-    except IndexError:
-        testing = False
     # DAG name for graphite comes from filename
     dag_dir_glob = os.path.basename(greps_json_file).replace(".json", "")
 
@@ -72,3 +65,6 @@ if __name__ == "__main__":
                 ),
                 shell=True,
             )
+
+if __name__ == "__main__":
+    _main(sys.argv[1:])
