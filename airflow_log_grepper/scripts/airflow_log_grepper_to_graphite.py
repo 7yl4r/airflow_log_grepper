@@ -32,7 +32,7 @@ def sanitize_glob_string(glob_str):
 
 
 def main():
-    _main(sys.argv[1:])
+    _main(*sys.argv[1:])
 
 
 def _main(greps_json_file, dag_logs_dir, testing=False):
