@@ -48,7 +48,7 @@ setup(
         'console_scripts': [
             (
                 'airflow_log_grepper_to_graphite = '
-                'airflow_log_grepper.airflow_log_grepper_to_graphite__main__:'
+                'airflow_log_grepper.airflow_log_grepper_to_graphite:'
                 '_main'
             ),
         ],
