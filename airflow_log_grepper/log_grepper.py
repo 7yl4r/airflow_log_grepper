@@ -150,7 +150,6 @@ def get_grepped_log_counts(greps_json_file, base_log_path):
         ))
         pp.pprint(never_matched_files[:10])
 
-
     counts['unmatched'] = len(never_matched_files)
     print("\n" + "-"*100)
     sorted_counts = sorted(counts.items(), key=operator.itemgetter(1))

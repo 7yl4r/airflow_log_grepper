@@ -4,7 +4,7 @@ from setuptools import setup
 from setuptools import find_packages
 import io
 
-VERSION = '0.0.2'  # should match __version__ in imars_etl.__init__.py
+VERSION = '0.0.3'  # should match __version__ in imars_etl.__init__.py
 
 
 def read(*filenames, **kwargs):
@@ -49,7 +49,7 @@ setup(
             (
                 'airflow_log_grepper_to_graphite = '
                 'airflow_log_grepper.scripts.airflow_log_grepper_to_graphite:'
-                '_main'
+                'main'
             ),
         ],
     },
