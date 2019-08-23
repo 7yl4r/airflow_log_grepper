@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from setuptools import setup
 from setuptools import find_packages
 import io
 
-VERSION = '0.0.0'  # should match __version__ in imars_etl.__init__.py
+VERSION = '0.0.1'  # should match __version__ in imars_etl.__init__.py
 
 
 def read(*filenames, **kwargs):
