@@ -4,7 +4,7 @@ from setuptools import setup
 from setuptools import find_packages
 import io
 
-VERSION = '0.0.1'  # should match __version__ in imars_etl.__init__.py
+VERSION = '0.0.2'  # should match __version__ in imars_etl.__init__.py
 
 
 def read(*filenames, **kwargs):

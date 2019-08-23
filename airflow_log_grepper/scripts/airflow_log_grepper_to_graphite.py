@@ -1,7 +1,7 @@
 import os
 import sys
 import subprocess
-from . import log_grepper
+from airflow_log_grepper.airflow_log_grepper import log_grepper
 
 
 def sanitize_glob_string(glob_str):
