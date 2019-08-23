@@ -36,10 +36,15 @@ def main():
 
 
 def _main(greps_json_file, dag_logs_dir, testing=False):
-    if testing.lower() in ['y', '1', 'yes', 'test', 'testing', 'true']:
+    if (
+        testing is not False and
+        testing.lower() in ['y', '1', 'yes', 'test', 'testing', 'true']
+    ):
+        print("test mode")
         testing = True
     else:
-        assert testing is False
+        testing = False
+
     print("-"*100)
     HOSTNAME = subprocess.check_output("hostname -s", shell=True).strip()
     DATE = subprocess.check_output("date +%s", shell=True).strip()
