@@ -76,7 +76,10 @@ def progressbar(it, prefix="", size=60, file=sys.stdout):
     count = len(it)
 
     def show(j):
-        x = int(size*j/count)
+        try:
+            x = int(size*j/count)
+        except ZeroDivisionError:
+            x = count
         file.write(
             "%s[%s%s] %i/%i\r" % (prefix, "#"*x, "."*(size-x), j, count)
         )
