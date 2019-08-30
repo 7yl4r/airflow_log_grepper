@@ -21,8 +21,8 @@ def _main(greps_json_file, dag_logs_dir, testing=False):
         testing = False
 
     print("-"*100)
-    HOSTNAME = subprocess.check_output("hostname -s", shell=True).strip()
-    DATE = subprocess.check_output("date +%s", shell=True).strip()
+    HOSTNAME = str(subprocess.check_output("hostname -s", shell=True).strip())
+    DATE = str(subprocess.check_output("date +%s", shell=True).strip())
     # DAG name for graphite comes from filename
     dag_dir_glob = os.path.basename(greps_json_file).replace(".json", "")
 
