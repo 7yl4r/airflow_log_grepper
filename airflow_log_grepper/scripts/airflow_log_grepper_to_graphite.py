@@ -34,21 +34,24 @@ def _main(greps_json_file, dag_logs_dir, testing=False):
             dag=sanitize_glob_string(dag_dir_glob),
             match=match_name
         )
-        print("{} {} {}".format(metric, count, DATE))
         if not testing:
+            cmd = (
+                "timeout 3 echo {metric} {count} {dt} | " +
+                "nc {server} {port}"
+            ).format(
+                metric=metric,
+                count=count,
+                dt=DATE,
+                server="graphite",
+                port=2003
+            )
             result = subprocess.check_output(
-                (
-                    "timeout 3 echo {metric} {count} {dt} | " +
-                    "nc {server} {port}"
-                ).format(
-                    metric=metric,
-                    count=count,
-                    dt=DATE,
-                    server="graphite",
-                    port=2003
-                ),
+                cmd,
                 shell=True,
             )
+            print("{}\n---------------------------\n\t{}".format(cmd, result))
+        else:
+            print("{} {} {}".format(metric, count, DATE))
 
 if __name__ == "__main__":
     main()
