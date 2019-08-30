@@ -29,7 +29,7 @@ def _main(greps_json_file, dag_logs_dir, testing=False):
     for match_name, count in get_grepped_log_counts(
         greps_json_file, dag_logs_dir
     ):
-        metric = "{host}.exec.per_ten_min.airflow.logs.{dag}.{match}".format(
+        metric = "{host}.exec.per_one_hour.airflow.logs.{dag}.{match}".format(
             host=HOSTNAME,
             dag=sanitize_glob_string(dag_dir_glob),
             match=match_name
